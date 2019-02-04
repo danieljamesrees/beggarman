@@ -61,18 +61,30 @@ AWS Secrets Manager enables easy rotation, management, and retrieval of database
 
 Using Secrets Manager, secrets can be encrypted with keys managed via KMS. With Secrets Manager, pricing is based on the number of secrets managed in Secrets Manager and the number of Secrets Manager API calls made.
 
+No Jenkins plugins to use Secrets Manager has been found. Hence, it may be necessary to write custom AWS API client [see https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html](https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html) or SDK client [see https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/package-summary.html](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/package-summary.html) whenever accessing AWS secrets. The [CloudBees AWS Credentials Plugin](https://wiki.jenkins.io/display/JENKINS/CloudBees+AWS+Credentials+Plugin) may be useful for invoking this code using Jenkins.
+
 ### Non-AWS-specific Tools
 
 Prominent tools that can be used on all public clouds and on premise include:
 
 * [HashiCorp Vault](https://www.hashicorp.com/products/vault/)
 
-Not tied to any specific Configuration Management systems. For additional fault tolerance and scalability, Vault can be integrated with [](Consul).
+Not tied to any specific Configuration Management systems. For additional fault tolerance and scalability, Vault can be integrated with [Consul](https://github.com/hashicorp/consul).
 
 Vault can be installed on AWS via [Terraform](https://github.com/hashicorp/terraform-aws-vault).
 
+[The Vault Operator](https://coreos.com/blog/introducing-vault-operator-project) describes how to install Vault on Kubernetes. Information on installing Vault using Consul can be found at [https://github.com/drud/vault-consul-on-kube](https://github.com/drud/vault-consul-on-kube). Kubernetes has its own approach to [secret management](https://kubernetes.io/docs/concepts/configuration/secret/). However, using Vault as a stronger means of using secrets in Kubenetes is described at [https://banzaicloud.com/blog/inject-secrets-into-pods-vault/](https://banzaicloud.com/blog/inject-secrets-into-pods-vault/).
+
 Jenkins can be integrated with Vault using the [https://wiki.jenkins.io/display/JENKINS/HashiCorp+Vault+Plugin](HashiCorp Vault plugin).
+
+Jenkins-X is integrated with Vault. [Issue 703] (https://github.com/jenkins-x/jx/issues/703) describes how this was implemented and has a number of other useful links regarding cloud-based Vault installations.
 
 * [Key Whiz](https://square.github.io/keywhiz/)
 * [Lockbox](https://github.com/starekrow/lockbox)
 * [Dashlane](https://www.dashlane.com/)
+
+## Useful Links
+
+* [Comparing AWS Secrets Manager and Vault](https://www.reddit.com/r/devops/comments/8zmibk/aws_secrets_manager_vs_hashicorp_vault_what_can/)
+* [The Right Way to Store Secrets](https://aws.amazon.com/blogs/mt/the-right-way-to-store-secrets-using-parameter-store/)
+* [How are you managing application secrets on AWS?](https://www.reddit.com/r/devops/comments/8xa3u6/how_are_you_managing_application_secrets_on_aws/)
