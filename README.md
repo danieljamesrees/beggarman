@@ -97,7 +97,8 @@ export AWS_ACCESS_KEY_ID="USERS_ACCESS_KEY_ID"
 export AWS_SECRET_ACCESS_KEY="USERS_SECRET_ACCESS_KEY"
 export AWS_DEFAULT_REGION="us-east-1"
 
-./setup_vault.sh```
+./setup_vault.sh
+```
 
 To check the code before committing, install the pre-commit git hook by running the commands `curl https://pre-commit.com/install-local.py | python -; pre-commit install` (on Ubuntu). The hook can be manually run using `pre-commit run --all` - it only works on staged or committed files. It requires installing shellcheck, which can be done on Ubuntu using `sudo apt-get install shellcheck`.
 
