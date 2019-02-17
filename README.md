@@ -55,7 +55,7 @@ KMS is integrated with a [HSM](https://aws.amazon.com/cloudhsm) and complies wit
 
 KMS costs US $1/month to store any key created. AWS managed keys created by AWS services are free to store, which may cover most Use Cases for enterprises, apart from any keys needed by non-AWS-native applications. You are charged per-request when you use or manage your keys beyond the free tier - the cost of these charges would need specific analysis to gauge.
 
-#### Secrets Manager 
+#### Secrets Manager
 
 AWS Secrets Manager enables easy rotation, management, and retrieval of database credentials, API keys, and other secrets throughout their lifecycle. Users and applications retrieve secrets with a call to Secrets Manager APIs, eliminating the need to hardcode sensitive information in plain text. Secrets Manager offers secret rotation with built-in integration for Amazon RDS for MySQL, PostgreSQL, and Amazon Aurora. Also, the service is extensible to other types of secrets, including API keys and OAuth tokens. In addition, Secrets Manager permits using fine-grained permissions plus centralised auditing and rotation for resources in the AWS Cloud, third-party services, and on-premises.
 
@@ -82,6 +82,28 @@ Jenkins-X is integrated with Vault. [Issue 703] (https://github.com/jenkins-x/jx
 * [Key Whiz](https://square.github.io/keywhiz/)
 * [Lockbox](https://github.com/starekrow/lockbox)
 * [Dashlane](https://www.dashlane.com/)
+
+## Building a Consul-based private Vault cluster using Terraform
+
+To build a private Vault cluster based on Consul and using Terraform, run the script `setup_vault.sh` with the AWS credentials of an IAM user with the AmazonEC2FullAccess, IAMFullAccess, and AmazonS3FullAccess policies attached. The following script can be used as a wrapper:
+
+```#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+export AWS_ACCESS_KEY_ID="USERS_ACCESS_KEY_ID"
+export AWS_SECRET_ACCESS_KEY="USERS_SECRET_ACCESS_KEY"
+export AWS_DEFAULT_REGION="us-east-1"
+
+./setup_vault.sh```
+
+To check the code before committing, install the pre-commit git hook by running the commands `curl https://pre-commit.com/install-local.py | python -; pre-commit install` (on Ubuntu). The hook can be manually run using `pre-commit run --all` - it only works on staged or committed files. It requires installing shellcheck, which can be done on Ubuntu using `sudo apt-get install shellcheck`.
+
+## TODOs
+
+* Implement auto-unsealing.
 
 ## Useful Links
 
