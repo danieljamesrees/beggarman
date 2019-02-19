@@ -63,6 +63,8 @@ Using Secrets Manager, secrets can be encrypted with keys managed via KMS. With 
 
 No Jenkins plugins to use Secrets Manager has been found. Hence, it may be necessary to write a custom AWS API client ([see https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html](https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html)) or an SDK client ([see https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/package-summary.html](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/package-summary.html)) whenever accessing AWS secrets. The [CloudBees AWS Credentials Plugin](https://wiki.jenkins.io/display/JENKINS/CloudBees+AWS+Credentials+Plugin) may be useful for invoking this code using Jenkins.
 
+There is a [Terraform data source for accessing secrets](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html) and a [provider for rotating them](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
+
 ### Non-AWS-specific Tools
 
 Prominent tools that can be used on all public clouds and on premise include:
@@ -78,6 +80,8 @@ Vault can be installed on AWS via [Terraform](https://github.com/hashicorp/terra
 Jenkins can be integrated with Vault using the [https://wiki.jenkins.io/display/JENKINS/HashiCorp+Vault+Plugin](HashiCorp Vault plugin).
 
 Jenkins-X is integrated with Vault. [Issue 703] (https://github.com/jenkins-x/jx/issues/703) describes how this was implemented and has a number of other useful links regarding cloud-based Vault installations.
+
+There is also a [Terraform Vault provider](https://www.terraform.io/docs/providers/vault/index.html), though (as the docs note) `interacting with Vault from Terraform causes any secrets that you read and write to be persisted in both Terraform's state file and in any generated plan files`. Vault can be used to [implement dynamic secrets](https://www.hashicorp.com/resources/using-dynamic-secrets-in-terraform), while [Terraform Enterprise encrypts all variable values securely using Vault's transit backend prior to saving them](https://www.terraform.io/docs/enterprise/workspaces/variables.html#secure-storage-of-variables).
 
 * [Key Whiz](https://square.github.io/keywhiz/)
 * [Lockbox](https://github.com/starekrow/lockbox)
