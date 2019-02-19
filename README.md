@@ -108,7 +108,7 @@ To check the code before committing, install the pre-commit git hook by running 
 
 ## TODOs
 
-* Implement auto-unsealing.
+* Implement [auto-unsealing](https://blog.gruntwork.io/a-guide-to-automating-hashicorp-vault-1-auto-unsealing-b219970f02c6).
 
 ## Useful Links
 
