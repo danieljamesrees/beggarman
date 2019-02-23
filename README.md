@@ -73,8 +73,9 @@ Prominent tools that can be used on all public clouds and on premise include:
 
 Not tied to any specific Configuration Management systems. For additional fault tolerance and scalability, Vault can be integrated with [Consul](https://github.com/hashicorp/consul).
 
-Vault can be installed on AWS via [Terraform](https://github.com/hashicorp/terraform-aws-vault).
+Vault can be installed on AWS via [Terraform](https://github.com/hashicorp/terraform-aws-vault). A [Hashicorp video](https://www.hashicorp.com/resources/how-to-use-vault-with-spring-applications) and [associated demo code](https://github.com/jandd/spring-boot-vault-demo) describes how to do this more securely using AppRoles. General information on using Vault is discussed on a [HackerNews thread](https://news.ycombinator.com/item?id=12819595), with a link to a [Hashicorp article on Cubbyhole authentication](https://www.hashicorp.com/blog/cubbyhole-authentication-principles) which is an alternative production-ready approach to accessing secrets. However, no information is provided on how to use this approach with Spring applications.
 
+Spring Boot applications can [access Vault secrets](https://spring.io/guides/gs/accessing-vault/) using Spring Cloud Vault. 
 [The Vault Operator](https://coreos.com/blog/introducing-vault-operator-project) describes how to install Vault on Kubernetes. Information on installing Vault using Consul can be found at [https://github.com/drud/vault-consul-on-kube](https://github.com/drud/vault-consul-on-kube). Kubernetes has its own approach to [secret management](https://kubernetes.io/docs/concepts/configuration/secret/). However, using Vault as a stronger means of using secrets in Kubenetes is described at [https://banzaicloud.com/blog/inject-secrets-into-pods-vault/](https://banzaicloud.com/blog/inject-secrets-into-pods-vault/).
 
 Jenkins can be integrated with Vault using the [https://wiki.jenkins.io/display/JENKINS/HashiCorp+Vault+Plugin](HashiCorp Vault plugin).
