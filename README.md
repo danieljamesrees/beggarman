@@ -63,7 +63,7 @@ Using Secrets Manager, secrets can be encrypted with keys managed via KMS. With 
 
 No Jenkins plugins to use Secrets Manager has been found. Hence, it may be necessary to write a custom AWS API client ([see https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html](https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html)) or an SDK client ([see https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/package-summary.html](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/package-summary.html)) whenever accessing AWS secrets. The [CloudBees AWS Credentials Plugin](https://wiki.jenkins.io/display/JENKINS/CloudBees+AWS+Credentials+Plugin) may be useful for invoking this code using Jenkins.
 
-There is a [Terraform data source for accessing secrets](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html) and a [provider for rotating them](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html).
+There is a [Terraform data source for accessing secrets](https://www.terraform.io/docs/providers/aws/d/secretsmanager_secret_version.html) and a [provider for rotating them](https://www.terraform.io/docs/providers/aws/r/secretsmanager_secret.html). [https://tech-universe.net/posts/kotlin/server/using-aws-secrets-manager-with-spring-boot/](https://tech-universe.net/posts/kotlin/server/using-aws-secrets-manager-with-spring-boot/) describes how to access such secrets in a Spring Boot application.
 
 ### Non-AWS-specific Tools
 
